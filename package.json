@@ -1,0 +1,24 @@
+{
+  "name": "crud-nodejs",
+  "version": "1.0.0",
+  "description": "CRUD feito com nodejs, mysql, bootstrap e handlebars.js",
+  "keywords": [
+    "express",
+    "nodejs",
+    "handlebarsjs",
+    "bootstrap",
+    "mysql",
+    "javascript"
+  ],
+  "license": "MIT",
+  "author": "Marcos Renan",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
