@@ -16,6 +16,10 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+//dados via rotas
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+
 //conexao com o BD
 const conexao = mysql.createConnection({
     host:'localhost',
@@ -27,12 +31,18 @@ const conexao = mysql.createConnection({
 //teste de conexao
 conexao.connect(function(erro){
     if(erro) throw erro;
-    console.log('Conexao bem sucedida!');
+    console.log('Conexao bem sucedida! localhost:8080');
 })
 
 //rota que renderiza pagina inicial
 app.get('/', function(req, res){
     res.render('formulario');
+});
+
+//rota de cadastro
+app.post('/cadastrar', function(req, res){
+    console.log(req.body);
+    res.end();
 });
 
 //servidor escutando porta:8000
