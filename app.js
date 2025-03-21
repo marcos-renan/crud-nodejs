@@ -2,9 +2,16 @@
 import express from 'express';
 //importando conector do BD
 import mysql from 'mysql2';
+//importando o express-handlebars
+import { engine } from 'express-handlebars';
 
 //criando varivel app
 const app = express();
+ 
+//configuracao do express-handlebars
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set('views', './views');
 
 //conexao com o BD
 const conexao = mysql.createConnection({
@@ -20,10 +27,9 @@ conexao.connect(function(erro){
     console.log('Conexao bem sucedida!');
 })
 
-//rota hello world do tipo get
+//rota que renderiza pagina inicial
 app.get('/', function(req, res){
-    res.write('Hello Marcos, you is my world!');
-    res.end();
+    res.render('formulario');
 });
 
 //servidor escutando porta:8000
