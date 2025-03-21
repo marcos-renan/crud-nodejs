@@ -7,6 +7,9 @@ import { engine } from 'express-handlebars';
 
 //criando varivel app
 const app = express();
+
+//bootstrap para estilizacao
+app.use('/bootstrap', express.static('./node_modules/bootstrap/dist'));
  
 //configuracao do express-handlebars
 app.engine('handlebars', engine());
